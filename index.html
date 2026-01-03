@@ -75,7 +75,6 @@
 
         html {
             height: 100%;
-            overflow: hidden;
         }
 
         body {
@@ -92,11 +91,23 @@
             -webkit-user-select: none;
             user-select: none;
             overflow-x: hidden;
+            overflow-y: auto;
             padding-top: var(--safe-area-top);
             padding-bottom: var(--safe-area-bottom);
             padding-left: var(--safe-area-left);
             padding-right: var(--safe-area-right);
             line-height: 1.6;
+        }
+        
+        /* En móviles/PWA mantener comportamiento original si es necesario */
+        @media (max-width: 768px) and (display-mode: standalone) {
+            html {
+                overflow: hidden;
+            }
+            body {
+                overflow-y: auto;
+                -webkit-overflow-scrolling: touch;
+            }
         }
 
         /* Header */
