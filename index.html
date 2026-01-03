@@ -2,8 +2,28 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     <title>Finanzas Positivas</title>
+    
+    <!-- PWA Meta Tags -->
+    <meta name="application-name" content="Finanzas Positivas">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Finanzas+">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="theme-color" content="#C4A484">
+    <meta name="msapplication-TileColor" content="#C4A484">
+    <meta name="description" content="Tu camino hacia el orden y la tranquilidad financiera">
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="data:application/json;base64,ewogICJuYW1lIjogIkZpbmFuemFzIFBvc2l0aXZhcyIsCiAgInNob3J0X25hbWUiOiAiRmluYW56YXMrIiwKICAiZGVzY3JpcHRpb24iOiAiVHUgY2FtaW5vIGhhY2lhIGVsIG9yZGVuIHkgbGEgdHJhbnF1aWxpZGFkIGZpbmFuY2llcmEiLAogICJzdGFydF91cmwiOiAiLiIsCiAgImRpc3BsYXkiOiAic3RhbmRhbG9uZSIsCiAgImJhY2tncm91bmRfY29sb3IiOiAiI0ZBRjhGNSIsCiAgInRoZW1lX2NvbG9yIjogIiNDNEE0ODQiLAogICJvcmllbnRhdGlvbiI6ICJwb3J0cmFpdCIsCiAgInNjb3BlIjogIi4iLAogICJpY29ucyI6IFsKICAgIHsKICAgICAgInNyYyI6ICJkYXRhOmltYWdlL3N2Zyt4bWw7YmFzZTY0LFBITjJaeUI0Yld4dWN6MGlhSFIwY0RvdkwzZDNkeTUzTXk1dmNtY3ZNakF3TUM5emRtY2lJSFpwWlhkQ2IzZzlJakFnTUNBeE9USWdNVGt5SWo0OFpHVm1jejQ4YkdsdVpXRnlSM0poWkdsbGJuUWdhV1E5SW1jaUlIZ3hQU0l3SlNJZ2VURTlJakFsSWlCNE1qMGlNVEF3SlNJZ2VUSTlJakV3TUNVaVBqeHpkRzl3SUc5bVpuTmxkRDBpTUNVaUlITjBiM0F0WTI5c2IzSTlJaU5ETkVFME9EUWlMejQ4YzNSdmNDQnZabVp6WlhROUlqRXdNQ1VpSUhOMGIzQXRZMjlzYjNJOUlpTkJOamhDTmtFaUx6NDhMMnhwYm1WaGNrZHlZV1JwWlc1MFBqd3ZaR1ZtY3o0OFkybHlZMnhsSUdONFBTSTVOaUlnWTNrOUlqazJJaUJ5UFNJNU5pSWdabWxzYkQwaWRYSnNLQ05uS1NJdlBqeDBaWGgwSUhnOUlqazJJaUI1UFNJeE1UQWlJR1p2Ym5RdFptRnRhV3g1UFNKelpYSnBaaUlnWm05dWRDMXphWHBsUFNJMk5DSWdabWxzYkQwaUkyWm1abVptWmlJZ2RHVjRkQzFoYm1Ob2IzSTlJbTFwWkdSc1pTSWdabTl1ZEMxM1pXbG5hSFE5SWpVd01DSStaand2ZEdWNGRENDhkR1Y0ZENCNFBTSXhNelFpSUhrOUlqRXhNQ0lnWm05dWRDMW1ZVzFwYkhrOUluTmhibk10YzJWeWFXWWlJR1p2Ym5RdGMybDZaVDBpTmpRaUlHWnBiR3c5SWlNM1JVUTVOVGNpSUhSbGVIUXRZVzVqYUc5eVBTSnpkR0Z5ZENJZ1ptOXVkQzEzWldsbmFIUTlJamd3TUNJK0t6d3ZkR1Y0ZEQ0OEwzTjJaejQ9IiwKICAgICAgInNpemVzIjogIjE5MngxOTIiLAogICAgICAidHlwZSI6ICJpbWFnZS9zdmcreG1sIiwKICAgICAgInB1cnBvc2UiOiAiYW55IG1hc2thYmxlIgogICAgfQogIF0KfQ==">
+    
+    <!-- Apple Touch Icon -->
+    <link rel="apple-touch-icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxOTIgMTkyIj48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPjxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiNDNEE0ODQiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNBNjhCNkEiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48Y2lyY2xlIGN4PSI5NiIgY3k9Ijk2IiByPSI5NiIgZmlsbD0idXJsKCNnKSIvPjx0ZXh0IHg9Ijk2IiB5PSIxMTAiIGZvbnQtZmFtaWx5PSJzZXJpZiIgZm9udC1zaXplPSI2NCIgZmlsbD0iI2ZmZmZmZiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC13ZWlnaHQ9IjUwMCI+ZjwvdGV4dD48dGV4dCB4PSIxMzQiIHk9IjExMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iNjQiIGZpbGw9IiM3RUQ5NTciIHRleHQtYW5jaG9yPSJzdGFydCIgZm9udC13ZWlnaHQ9IjgwMCI+KzwvdGV4dD48L3N2Zz4=">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxOTIgMTkyIj48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPjxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiNDNEE0ODQiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNBNjhCNkEiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48Y2lyY2xlIGN4PSI5NiIgY3k9Ijk2IiByPSI5NiIgZmlsbD0idXJsKCNnKSIvPjx0ZXh0IHg9Ijk2IiB5PSIxMTAiIGZvbnQtZmFtaWx5PSJzZXJpZiIgZm9udC1zaXplPSI2NCIgZmlsbD0iI2ZmZmZmZiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC13ZWlnaHQ9IjUwMCI+Zjwv dGV4dD48dGV4dCB4PSIxMzQiIHk9IjExMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iNjQiIGZpbGw9IiM3RUQ5NTciIHRleHQtYW5jaG9yPSJzdGFydCIgZm9udC13ZWlnaHQ9IjgwMCI+Kzwv dGV4dD48L3N2Zz4=">
+    
     <!-- Google Fonts - Cormorant Garamond + Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -39,6 +59,12 @@
             /* Tipografía */
             --font-display: 'Cormorant Garamond', Georgia, serif;
             --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            
+            /* PWA Safe Areas */
+            --safe-area-top: env(safe-area-inset-top, 0px);
+            --safe-area-bottom: env(safe-area-inset-bottom, 0px);
+            --safe-area-left: env(safe-area-inset-left, 0px);
+            --safe-area-right: env(safe-area-inset-right, 0px);
         }
 
         * {
@@ -47,12 +73,29 @@
             box-sizing: border-box;
         }
 
+        html {
+            height: 100%;
+            overflow: hidden;
+        }
+
         body {
             font-family: var(--font-body);
             background: var(--bg);
             color: var(--text);
             min-height: 100vh;
+            min-height: -webkit-fill-available;
             font-weight: 400;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            -webkit-tap-highlight-color: transparent;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            user-select: none;
+            overflow-x: hidden;
+            padding-top: var(--safe-area-top);
+            padding-bottom: var(--safe-area-bottom);
+            padding-left: var(--safe-area-left);
+            padding-right: var(--safe-area-right);
             line-height: 1.6;
         }
 
@@ -93,8 +136,10 @@
         }
 
         .brand-logo span {
-            color: var(--income-light);
-            font-weight: 700;
+            color: #7ED957;
+            font-weight: 800;
+            font-size: 1.15rem;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.2);
         }
 
         .brand-text {
@@ -727,10 +772,22 @@
             border: 1px solid var(--border);
             border-radius: 12px;
             font-size: 1rem;
+            font-size: 16px; /* Previene zoom en iOS */
             font-family: var(--font-body);
             background: var(--bg-warm);
             color: var(--text);
             transition: all 0.3s ease;
+            -webkit-user-select: text;
+            user-select: text;
+            -webkit-appearance: none;
+            appearance: none;
+        }
+
+        select {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%238B7D74' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 1rem center;
+            padding-right: 2.5rem;
         }
 
         input:focus, select:focus {
@@ -822,8 +879,8 @@
         /* FAB */
         .fab-container {
             position: fixed;
-            bottom: 1.5rem;
-            right: 1.5rem;
+            bottom: calc(1.5rem + var(--safe-area-bottom));
+            right: calc(1.5rem + var(--safe-area-right));
             display: flex;
             flex-direction: column;
             gap: 0.75rem;
@@ -1150,8 +1207,10 @@
         }
 
         .onboarding-logo span {
-            color: var(--income-light);
-            font-weight: 700;
+            color: #7ED957;
+            font-weight: 800;
+            font-size: 2.5rem;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
         }
 
         .onboarding h2 {
@@ -2142,7 +2201,7 @@
                             <span class="stat-value" id="planningIncome">$0</span>
                         </div>
                         <div class="stat-row">
-                            <span class="stat-label">Presupuestado</span>
+                            <span class="stat-label">Asignado</span>
                             <span class="stat-value" id="totalBudgeted">$0</span>
                         </div>
                         <div class="stat-row" style="border-bottom: none;">
@@ -2155,7 +2214,7 @@
                     <div id="budgetProgressSticky" class="budget-progress-sticky">
                         <div class="budget-progress-content">
                             <div class="budget-progress-info">
-                                <span id="stickyBudgetedLabel">Presupuestado: $0</span>
+                                <span id="stickyBudgetedLabel">Asignado: $0</span>
                                 <span id="stickyAvailableLabel">Disponible: $0</span>
                             </div>
                             <div class="budget-progress-bar-container">
@@ -3682,7 +3741,7 @@
             document.getElementById('availableToBudget').textContent = formatMoney(Math.max(0, available));
 
             // Sticky progress bar
-            document.getElementById('stickyBudgetedLabel').textContent = `Presupuestado: ${formatMoney(totalBudget)}`;
+            document.getElementById('stickyBudgetedLabel').textContent = `Asignado: ${formatMoney(totalBudget)}`;
             document.getElementById('stickyAvailableLabel').textContent = isComplete ? '¡Completo!' : `Disponible: ${formatMoney(available)}`;
             
             const progressFill = document.getElementById('budgetProgressFill');
@@ -5040,6 +5099,236 @@
 
         // Initialize Lucide icons
         lucide.createIcons();
+
+        // ============ PWA INSTALLATION ============
+        let deferredPrompt;
+        const installBanner = document.createElement('div');
+        installBanner.id = 'installBanner';
+        installBanner.innerHTML = `
+            <div class="install-banner">
+                <div class="install-content">
+                    <div class="install-icon">f<span>+</span></div>
+                    <div class="install-text">
+                        <strong>Instalar Finanzas+</strong>
+                        <span>Agregá la app a tu pantalla de inicio</span>
+                    </div>
+                </div>
+                <div class="install-actions">
+                    <button class="install-dismiss" onclick="dismissInstall()">Ahora no</button>
+                    <button class="install-btn" onclick="installApp()">Instalar</button>
+                </div>
+            </div>
+        `;
+        installBanner.style.cssText = `
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: var(--card);
+            border-top: 1px solid var(--border);
+            padding: 1rem;
+            padding-bottom: calc(1rem + var(--safe-area-bottom));
+            z-index: 1000;
+            box-shadow: 0 -4px 20px rgba(93, 78, 66, 0.1);
+        `;
+        document.body.appendChild(installBanner);
+
+        // Add install banner styles
+        const installStyles = document.createElement('style');
+        installStyles.textContent = `
+            .install-banner {
+                max-width: 600px;
+                margin: 0 auto;
+            }
+            .install-content {
+                display: flex;
+                align-items: center;
+                gap: 0.75rem;
+                margin-bottom: 0.75rem;
+            }
+            .install-icon {
+                width: 44px;
+                height: 44px;
+                background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+                border-radius: 12px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: white;
+                font-family: var(--font-display);
+                font-weight: 600;
+                font-size: 1.1rem;
+            }
+            .install-icon span {
+                color: #7ED957;
+                font-weight: 800;
+                font-size: 1.3rem;
+            }
+            .install-text {
+                flex: 1;
+            }
+            .install-text strong {
+                display: block;
+                font-size: 0.95rem;
+                color: var(--text);
+            }
+            .install-text span {
+                font-size: 0.8rem;
+                color: var(--text-light);
+            }
+            .install-actions {
+                display: flex;
+                gap: 0.75rem;
+            }
+            .install-dismiss {
+                flex: 1;
+                padding: 0.75rem;
+                background: var(--bg-warm);
+                border: 1px solid var(--border);
+                border-radius: 10px;
+                color: var(--text-light);
+                font-size: 0.85rem;
+                font-weight: 500;
+                cursor: pointer;
+            }
+            .install-btn {
+                flex: 1;
+                padding: 0.75rem;
+                background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+                border: none;
+                border-radius: 10px;
+                color: white;
+                font-size: 0.85rem;
+                font-weight: 600;
+                cursor: pointer;
+            }
+            
+            /* Standalone mode adjustments */
+            @media (display-mode: standalone) {
+                .header {
+                    padding-top: calc(0.75rem + var(--safe-area-top));
+                }
+            }
+            
+            /* iOS standalone mode */
+            @media (display-mode: standalone), (display-mode: fullscreen) {
+                #installBanner {
+                    display: none !important;
+                }
+            }
+        `;
+        document.head.appendChild(installStyles);
+
+        // Listen for beforeinstallprompt event
+        window.addEventListener('beforeinstallprompt', (e) => {
+            e.preventDefault();
+            deferredPrompt = e;
+            
+            // Check if user dismissed before
+            const dismissed = localStorage.getItem('installDismissed');
+            const dismissedDate = dismissed ? new Date(dismissed) : null;
+            const daysSinceDismiss = dismissedDate ? (Date.now() - dismissedDate.getTime()) / (1000 * 60 * 60 * 24) : 999;
+            
+            // Show banner if not dismissed or dismissed more than 7 days ago
+            if (!dismissed || daysSinceDismiss > 7) {
+                setTimeout(() => {
+                    document.getElementById('installBanner').style.display = 'block';
+                }, 3000);
+            }
+        });
+
+        function installApp() {
+            if (deferredPrompt) {
+                deferredPrompt.prompt();
+                deferredPrompt.userChoice.then((choiceResult) => {
+                    if (choiceResult.outcome === 'accepted') {
+                        console.log('App installed');
+                    }
+                    deferredPrompt = null;
+                    document.getElementById('installBanner').style.display = 'none';
+                });
+            }
+        }
+
+        function dismissInstall() {
+            document.getElementById('installBanner').style.display = 'none';
+            localStorage.setItem('installDismissed', new Date().toISOString());
+        }
+
+        // Check if running as installed PWA
+        if (window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone) {
+            document.body.classList.add('pwa-standalone');
+        }
+
+        // Handle app visibility changes (for data sync)
+        document.addEventListener('visibilitychange', () => {
+            if (document.visibilityState === 'visible') {
+                // Refresh data when app becomes visible
+                if (state.user) {
+                    renderDashboard();
+                    renderBudget();
+                    renderGoals();
+                }
+            }
+        });
+
+        // Register Service Worker for offline support
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                // Create inline service worker
+                const swCode = `
+                    const CACHE_NAME = 'finanzas-positivas-v1';
+                    const ASSETS = [
+                        './',
+                        'https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap'
+                    ];
+
+                    self.addEventListener('install', (event) => {
+                        event.waitUntil(
+                            caches.open(CACHE_NAME).then((cache) => {
+                                return cache.addAll(ASSETS);
+                            })
+                        );
+                        self.skipWaiting();
+                    });
+
+                    self.addEventListener('activate', (event) => {
+                        event.waitUntil(
+                            caches.keys().then((cacheNames) => {
+                                return Promise.all(
+                                    cacheNames.filter((name) => name !== CACHE_NAME)
+                                        .map((name) => caches.delete(name))
+                                );
+                            })
+                        );
+                        self.clients.claim();
+                    });
+
+                    self.addEventListener('fetch', (event) => {
+                        event.respondWith(
+                            caches.match(event.request).then((response) => {
+                                return response || fetch(event.request).catch(() => {
+                                    // Offline fallback
+                                    if (event.request.mode === 'navigate') {
+                                        return caches.match('./');
+                                    }
+                                });
+                            })
+                        );
+                    });
+                `;
+                
+                const blob = new Blob([swCode], { type: 'application/javascript' });
+                const swUrl = URL.createObjectURL(blob);
+                
+                navigator.serviceWorker.register(swUrl).then((registration) => {
+                    console.log('ServiceWorker registered');
+                }).catch((error) => {
+                    console.log('ServiceWorker registration failed:', error);
+                });
+            });
+        }
     </script>
 </body>
 </html>
