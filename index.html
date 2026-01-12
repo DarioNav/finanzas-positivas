@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover">
     <title>Finanzas Positivas</title>
     
     <!-- PWA Meta Tags -->
@@ -14,6 +14,10 @@
     <meta name="theme-color" content="#C4A484">
     <meta name="msapplication-TileColor" content="#C4A484">
     <meta name="description" content="Tu camino hacia el orden y la tranquilidad financiera">
+    
+    <!-- iOS Specific -->
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-touch-fullscreen" content="yes">
     
     <!-- PWA Manifest -->
     <link rel="manifest" href="data:application/json;base64,ewogICJuYW1lIjogIkZpbmFuemFzIFBvc2l0aXZhcyIsCiAgInNob3J0X25hbWUiOiAiRmluYW56YXMrIiwKICAiZGVzY3JpcHRpb24iOiAiVHUgY2FtaW5vIGhhY2lhIGVsIG9yZGVuIHkgbGEgdHJhbnF1aWxpZGFkIGZpbmFuY2llcmEiLAogICJzdGFydF91cmwiOiAiLiIsCiAgImRpc3BsYXkiOiAic3RhbmRhbG9uZSIsCiAgImJhY2tncm91bmRfY29sb3IiOiAiI0ZBRjhGNSIsCiAgInRoZW1lX2NvbG9yIjogIiNDNEE0ODQiLAogICJvcmllbnRhdGlvbiI6ICJwb3J0cmFpdCIsCiAgInNjb3BlIjogIi4iLAogICJpY29ucyI6IFsKICAgIHsKICAgICAgInNyYyI6ICJkYXRhOmltYWdlL3N2Zyt4bWw7YmFzZTY0LFBITjJaeUI0Yld4dWN6MGlhSFIwY0RvdkwzZDNkeTUzTXk1dmNtY3ZNakF3TUM5emRtY2lJSFpwWlhkQ2IzZzlJakFnTUNBeE9USWdNVGt5SWo0OFpHVm1jejQ4YkdsdVpXRnlSM0poWkdsbGJuUWdhV1E5SW1jaUlIZ3hQU0l3SlNJZ2VURTlJakFsSWlCNE1qMGlNVEF3SlNJZ2VUSTlJakV3TUNVaVBqeHpkRzl3SUc5bVpuTmxkRDBpTUNVaUlITjBiM0F0WTI5c2IzSTlJaU5ETkVFME9EUWlMejQ4YzNSdmNDQnZabVp6WlhROUlqRXdNQ1VpSUhOMGIzQXRZMjlzYjNJOUlpTkJOamhDTmtFaUx6NDhMMnhwYm1WaGNrZHlZV1JwWlc1MFBqd3ZaR1ZtY3o0OFkybHlZMnhsSUdONFBTSTVOaUlnWTNrOUlqazJJaUJ5UFNJNU5pSWdabWxzYkQwaWRYSnNLQ05uS1NJdlBqeDBaWGgwSUhnOUlqazJJaUI1UFNJeE1UQWlJR1p2Ym5RdFptRnRhV3g1UFNKelpYSnBaaUlnWm05dWRDMXphWHBsUFNJMk5DSWdabWxzYkQwaUkyWm1abVptWmlJZ2RHVjRkQzFoYm1Ob2IzSTlJbTFwWkdSc1pTSWdabTl1ZEMxM1pXbG5hSFE5SWpVd01DSStaand2ZEdWNGRENDhkR1Y0ZENCNFBTSXhNelFpSUhrOUlqRXhNQ0lnWm05dWRDMW1ZVzFwYkhrOUluTmhibk10YzJWeWFXWWlJR1p2Ym5RdGMybDZaVDBpTmpRaUlHWnBiR3c5SWlNM1JVUTVOVGNpSUhSbGVIUXRZVzVqYUc5eVBTSnpkR0Z5ZENJZ1ptOXVkQzEzWldsbmFIUTlJamd3TUNJK0t6d3ZkR1Y0ZEQ0OEwzTjJaejQ9IiwKICAgICAgInNpemVzIjogIjE5MngxOTIiLAogICAgICAidHlwZSI6ICJpbWFnZS9zdmcreG1sIiwKICAgICAgInB1cnBvc2UiOiAiYW55IG1hc2thYmxlIgogICAgfQogIF0KfQ==">
@@ -73,41 +77,76 @@
             box-sizing: border-box;
         }
 
+        /* ============ PWA MOBILE FIX - iOS & Android ============ */
         html {
             height: 100%;
+            height: -webkit-fill-available;
         }
 
         body {
             font-family: var(--font-body);
             background: var(--bg);
             color: var(--text);
+            min-height: 100%;
             min-height: 100vh;
             min-height: -webkit-fill-available;
             font-weight: 400;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
             -webkit-tap-highlight-color: transparent;
-            -webkit-touch-callout: none;
+            line-height: 1.6;
+            /* Allow text selection in inputs */
             -webkit-user-select: none;
             user-select: none;
-            overflow-x: hidden;
-            overflow-y: auto;
-            padding-top: var(--safe-area-top);
-            padding-bottom: var(--safe-area-bottom);
-            padding-left: var(--safe-area-left);
-            padding-right: var(--safe-area-right);
-            line-height: 1.6;
+            /* Safe areas for notch devices */
+            padding-top: env(safe-area-inset-top, 0px);
+            padding-bottom: env(safe-area-inset-bottom, 0px);
+            padding-left: env(safe-area-inset-left, 0px);
+            padding-right: env(safe-area-inset-right, 0px);
         }
         
-        /* En móviles/PWA mantener comportamiento original si es necesario */
-        @media (max-width: 768px) and (display-mode: standalone) {
-            html {
-                overflow: hidden;
-            }
+        /* Allow text selection in form elements */
+        input, textarea, select {
+            -webkit-user-select: text;
+            user-select: text;
+        }
+        
+        /* ============ PWA STANDALONE MODE ============ */
+        @media all and (display-mode: standalone) {
             body {
-                overflow-y: auto;
-                -webkit-overflow-scrolling: touch;
+                /* Prevent overscroll/bounce on Android */
+                overscroll-behavior-y: contain;
             }
+        }
+        
+        /* ============ iOS PWA SPECIFIC FIX ============ */
+        /* Applied via JS when navigator.standalone is true */
+        html.ios-standalone {
+            height: 100%;
+            overflow: hidden;
+        }
+        
+        html.ios-standalone body {
+            height: 100%;
+            overflow: hidden;
+        }
+        
+        html.ios-standalone #app {
+            height: 100%;
+            overflow-y: auto;
+            overflow-x: hidden;
+            -webkit-overflow-scrolling: touch;
+            overscroll-behavior-y: contain;
+        }
+        
+        /* Android PWA fix */
+        html.android-standalone body {
+            overscroll-behavior-y: contain;
+        }
+        
+        html.android-standalone #app {
+            min-height: 100vh;
+            min-height: 100dvh;
         }
 
         /* Header */
@@ -1188,14 +1227,75 @@
             background: var(--border);
             color: var(--text);
         }
+        
+        /* ============ MOBILE PWA ENHANCEMENTS ============ */
+        /* Modal improvements for mobile */
+        .platform-mobile .modal {
+            padding-bottom: calc(1.75rem + env(safe-area-inset-bottom, 0px));
+        }
+        
+        .ios-standalone .modal-overlay {
+            /* Ensure modal appears above iOS safe area */
+            padding-top: env(safe-area-inset-top, 0px);
+        }
+        
+        .ios-standalone .modal {
+            /* Add extra padding for home indicator */
+            padding-bottom: calc(1.75rem + env(safe-area-inset-bottom, 20px));
+        }
+        
+        /* Prevent body scroll when modal is open */
+        body.modal-open {
+            overflow: hidden;
+            position: fixed;
+            width: 100%;
+        }
+        
+        /* Touch feedback for interactive elements */
+        .platform-mobile button,
+        .platform-mobile .nav-item,
+        .platform-mobile .category-item,
+        .platform-mobile .goal-card {
+            -webkit-tap-highlight-color: rgba(196, 164, 132, 0.2);
+        }
+        
+        /* Better touch targets */
+        .platform-mobile .action-btn {
+            min-width: 44px;
+            min-height: 44px;
+        }
+        
+        .platform-mobile input[type="text"],
+        .platform-mobile input[type="number"],
+        .platform-mobile select {
+            font-size: 16px; /* Prevents iOS zoom on focus */
+        }
+        
+        /* FAB adjustments for iOS */
+        .ios-standalone .fab-container {
+            bottom: calc(1.5rem + env(safe-area-inset-bottom, 20px));
+        }
+        
+        /* Header adjustments */
+        .ios-standalone .header {
+            padding-top: calc(0.85rem + env(safe-area-inset-top, 0px));
+        }
+        
+        /* Main content padding for iOS */
+        .ios-standalone .main {
+            padding-bottom: calc(6rem + env(safe-area-inset-bottom, 20px));
+        }
 
         /* Onboarding */
         .onboarding {
             min-height: 100vh;
+            min-height: 100dvh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             padding: 2rem;
+            padding-top: calc(2rem + env(safe-area-inset-top, 0px));
+            padding-bottom: calc(2rem + env(safe-area-inset-bottom, 0px));
             text-align: center;
             background: linear-gradient(180deg, var(--primary-light) 0%, var(--bg) 50%, var(--bg-warm) 100%);
         }
@@ -1467,6 +1567,95 @@
 
         .income-summary .stat-value {
             color: white;
+        }
+        
+        /* Expected Income Edit */
+        .expected-income-edit {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .expected-income-input {
+            background: rgba(255,255,255,0.2);
+            border: 1px solid rgba(255,255,255,0.3);
+            border-radius: 8px;
+            padding: 0.5rem 0.75rem;
+            color: white;
+            font-size: 1rem;
+            font-weight: 600;
+            width: 130px;
+            text-align: right;
+            font-family: var(--font-body);
+        }
+        
+        .expected-income-input::placeholder {
+            color: rgba(255,255,255,0.5);
+        }
+        
+        .expected-income-input:focus {
+            outline: none;
+            border-color: rgba(255,255,255,0.6);
+            background: rgba(255,255,255,0.25);
+        }
+        
+        .expected-income-input:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+        
+        /* Toggle Switch */
+        .expected-income-toggle {
+            margin-top: 0.75rem;
+            padding-top: 0.75rem;
+            border-top: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .toggle-container {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            cursor: pointer;
+            font-size: 0.8rem;
+        }
+        
+        .toggle-container input {
+            display: none;
+        }
+        
+        .toggle-slider {
+            width: 44px;
+            height: 24px;
+            background: rgba(255,255,255,0.3);
+            border-radius: 12px;
+            position: relative;
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+        }
+        
+        .toggle-slider::after {
+            content: '';
+            position: absolute;
+            width: 18px;
+            height: 18px;
+            background: white;
+            border-radius: 50%;
+            top: 3px;
+            left: 3px;
+            transition: all 0.3s ease;
+        }
+        
+        .toggle-container input:checked + .toggle-slider {
+            background: rgba(255,255,255,0.5);
+        }
+        
+        .toggle-container input:checked + .toggle-slider::after {
+            transform: translateX(20px);
+        }
+        
+        .toggle-label {
+            color: rgba(255,255,255,0.9);
+            line-height: 1.3;
         }
 
         /* Tabs */
@@ -2181,9 +2370,16 @@
                     <!-- Income Summary -->
                     <div class="income-summary">
                         <h3 class="card-title"><i data-lucide="circle-dollar-sign" class="icon-title"></i> Ingresos del Mes</h3>
-                        <div class="stat-row">
+                        <div class="stat-row" style="flex-wrap: wrap; gap: 0.5rem;">
                             <span class="stat-label">Esperado</span>
-                            <span class="stat-value" id="expectedIncome">$0</span>
+                            <div class="expected-income-edit">
+                                <input type="text" inputmode="numeric" 
+                                    id="expectedIncomeInput" 
+                                    class="amount-input expected-income-input"
+                                    placeholder="0"
+                                    onchange="updateExpectedIncome(this.value)"
+                                    oninput="this.value = formatAmountInput(this.value)">
+                            </div>
                         </div>
                         <div class="stat-row">
                             <span class="stat-label">Recibido</span>
@@ -2192,6 +2388,13 @@
                         <div class="stat-row" style="border-bottom: none;">
                             <span class="stat-label">Pendiente</span>
                             <span class="stat-value" id="pendingIncome">$0</span>
+                        </div>
+                        <div class="expected-income-toggle">
+                            <label class="toggle-container">
+                                <input type="checkbox" id="useReceivedAsExpected" onchange="toggleUseReceivedAsExpected()">
+                                <span class="toggle-slider"></span>
+                                <span class="toggle-label">Usar ingresos recibidos como esperado</span>
+                            </label>
                         </div>
                         <button class="btn" style="background: rgba(255,255,255,0.2); color: white; margin-top: 0.75rem;" onclick="openIncomeModal()">
                             + Registrar Ingreso
@@ -2315,7 +2518,7 @@
             </div>
             <div class="form-group">
                 <label>Monto</label>
-                <input type="number" id="expenseAmount" placeholder="0">
+                <input type="text" inputmode="numeric" id="expenseAmount" class="amount-input" placeholder="0">
             </div>
             <div class="form-group">
                 <label>Categoría</label>
@@ -2343,7 +2546,7 @@
             </div>
             <div class="form-group">
                 <label>Monto</label>
-                <input type="number" id="incomeAmount" placeholder="0">
+                <input type="text" inputmode="numeric" id="incomeAmount" class="amount-input" placeholder="0">
             </div>
             <div class="form-group">
                 <label>Categoría</label>
@@ -2419,15 +2622,15 @@
             </div>
             <div class="form-group">
                 <label>Monto objetivo</label>
-                <input type="number" id="goalTargetAmount" placeholder="¿Cuánto necesitás?">
+                <input type="text" inputmode="numeric" id="goalTargetAmount" class="amount-input" placeholder="¿Cuánto necesitás?">
             </div>
             <div class="form-group">
                 <label>Monto ya ahorrado</label>
-                <input type="number" id="goalSavedAmount" placeholder="¿Cuánto tenés ahorrado?">
+                <input type="text" inputmode="numeric" id="goalSavedAmount" class="amount-input" placeholder="¿Cuánto tenés ahorrado?">
             </div>
             <div class="form-group">
                 <label>Ahorro mensual estimado</label>
-                <input type="number" id="goalMonthlySaving" placeholder="¿Cuánto podés ahorrar por mes?">
+                <input type="text" inputmode="numeric" id="goalMonthlySaving" class="amount-input" placeholder="¿Cuánto podés ahorrar por mes?">
             </div>
             <input type="hidden" id="editingGoalId">
             <button class="btn btn-primary" onclick="saveGoal()">Guardar Objetivo</button>
@@ -2682,6 +2885,51 @@
         });
 
         // ============ UTILITIES ============
+        
+        // Formateo de montos con separador de miles
+        function formatAmountInput(value) {
+            // Remover todo excepto números
+            const numericValue = value.toString().replace(/\D/g, '');
+            if (!numericValue) return '';
+            // Formatear con puntos como separador de miles
+            return Number(numericValue).toLocaleString('es-AR');
+        }
+        
+        function parseAmountInput(value) {
+            // Remover puntos y convertir a número
+            const numericValue = value.toString().replace(/\./g, '').replace(/,/g, '');
+            return Number(numericValue) || 0;
+        }
+        
+        // Aplicar formateo a un input mientras se escribe
+        function setupAmountInput(input) {
+            input.addEventListener('input', function(e) {
+                const cursorPos = this.selectionStart;
+                const oldLength = this.value.length;
+                const oldValue = this.value;
+                
+                // Formatear el valor
+                this.value = formatAmountInput(this.value);
+                
+                // Ajustar posición del cursor
+                const newLength = this.value.length;
+                const diff = newLength - oldLength;
+                const newCursorPos = Math.max(0, cursorPos + diff);
+                this.setSelectionRange(newCursorPos, newCursorPos);
+            });
+            
+            // Formatear valor inicial si existe
+            if (input.value) {
+                input.value = formatAmountInput(input.value);
+            }
+        }
+        
+        // Inicializar todos los inputs de monto
+        function initAmountInputs() {
+            const amountInputs = document.querySelectorAll('.amount-input');
+            amountInputs.forEach(setupAmountInput);
+        }
+        
         function formatMoney(amount) {
             const currency = state.user?.currency || 'ARS';
             const symbol = currency === 'USD' ? 'US$' : currency === 'EUR' ? '€' : '$';
@@ -2732,6 +2980,27 @@
                 byCategory[i.categoryId] = (byCategory[i.categoryId] || 0) + Number(i.amount);
             });
             return byCategory;
+        }
+        
+        // ============ MODAL HELPERS (PWA Mobile) ============
+        let scrollPosition = 0;
+        
+        function lockBodyScroll() {
+            // Save scroll position and lock body for iOS
+            if (document.documentElement.classList.contains('ios-standalone')) {
+                scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+                document.body.style.top = `-${scrollPosition}px`;
+            }
+            document.body.classList.add('modal-open');
+        }
+        
+        function unlockBodyScroll() {
+            document.body.classList.remove('modal-open');
+            // Restore scroll position for iOS
+            if (document.documentElement.classList.contains('ios-standalone')) {
+                document.body.style.top = '';
+                window.scrollTo(0, scrollPosition);
+            }
         }
 
         // ============ ONBOARDING ============
@@ -2814,7 +3083,7 @@
 
         // ============ DASHBOARD ============
         function renderDashboard() {
-            const expectedIncome = state.user?.income || 0;
+            const expectedIncome = getEffectiveExpectedIncome();
             const totalBudget = getTotalBudget();
             const actualIncome = getTotalIncomes();
             const actualExpenses = getTotalExpenses();
@@ -3079,7 +3348,7 @@
 
         function renderCategoryComparison() {
             const byCategory = getExpensesByCategory();
-            const expectedIncome = state.user?.income || 0;
+            const expectedIncome = getEffectiveExpectedIncome();
             const monthlyBudgets = getMonthlyBudgets();
             
             // Solo mostrar categorías con presupuesto o gastos
@@ -3504,14 +3773,17 @@
         }
 
         function openExpenseModal(expenseId = null) {
+            lockBodyScroll();
             document.getElementById('expenseModal').classList.add('active');
             document.getElementById('expenseDate').valueAsDate = new Date();
+            
+            const amountInput = document.getElementById('expenseAmount');
             
             if (expenseId) {
                 const exp = state.expenses.find(e => e.id === expenseId);
                 if (exp) {
                     document.getElementById('expenseModalTitle').textContent = 'Editar Gasto';
-                    document.getElementById('expenseAmount').value = exp.amount;
+                    amountInput.value = formatAmountInput(exp.amount);
                     document.getElementById('expenseCategory').value = exp.categoryId;
                     document.getElementById('expenseDesc').value = exp.description || '';
                     document.getElementById('expenseDate').value = exp.date;
@@ -3519,18 +3791,22 @@
                 }
             } else {
                 document.getElementById('expenseModalTitle').textContent = 'Nuevo Gasto';
-                document.getElementById('expenseAmount').value = '';
+                amountInput.value = '';
                 document.getElementById('expenseDesc').value = '';
                 document.getElementById('editingExpenseId').value = '';
             }
+            
+            // Configurar formateo en tiempo real
+            setupAmountInput(amountInput);
         }
 
         function closeExpenseModal() {
             document.getElementById('expenseModal').classList.remove('active');
+            unlockBodyScroll();
         }
 
         function saveExpense() {
-            const amount = Number(document.getElementById('expenseAmount').value);
+            const amount = parseAmountInput(document.getElementById('expenseAmount').value);
             const categoryId = Number(document.getElementById('expenseCategory').value);
             const description = document.getElementById('expenseDesc').value.trim();
             const date = document.getElementById('expenseDate').value;
@@ -3594,15 +3870,18 @@
 
         // ============ INCOMES ============
         function openIncomeModal(incomeId = null) {
+            lockBodyScroll();
             document.getElementById('incomeModal').classList.add('active');
             document.getElementById('incomeDate').valueAsDate = new Date();
             populateIncomeCategories();
+            
+            const amountInput = document.getElementById('incomeAmount');
             
             if (incomeId) {
                 const inc = state.incomes.find(i => i.id === incomeId);
                 if (inc) {
                     document.getElementById('incomeModalTitle').textContent = 'Editar Ingreso';
-                    document.getElementById('incomeAmount').value = inc.amount;
+                    amountInput.value = formatAmountInput(inc.amount);
                     document.getElementById('incomeCategory').value = inc.categoryId;
                     document.getElementById('incomeDesc').value = inc.description || '';
                     document.getElementById('incomeDate').value = inc.date;
@@ -3610,18 +3889,22 @@
                 }
             } else {
                 document.getElementById('incomeModalTitle').textContent = 'Nuevo Ingreso';
-                document.getElementById('incomeAmount').value = '';
+                amountInput.value = '';
                 document.getElementById('incomeDesc').value = '';
                 document.getElementById('editingIncomeId').value = '';
             }
+            
+            // Configurar formateo en tiempo real
+            setupAmountInput(amountInput);
         }
 
         function closeIncomeModal() {
             document.getElementById('incomeModal').classList.remove('active');
+            unlockBodyScroll();
         }
 
         function saveIncome() {
-            const amount = Number(document.getElementById('incomeAmount').value);
+            const amount = parseAmountInput(document.getElementById('incomeAmount').value);
             const categoryId = Number(document.getElementById('incomeCategory').value);
             const description = document.getElementById('incomeDesc').value.trim();
             const date = document.getElementById('incomeDate').value;
@@ -3646,6 +3929,11 @@
                     date
                 });
             }
+            
+            // Si useReceivedAsExpected está activo, actualizar el income
+            if (state.user?.useReceivedAsExpected) {
+                state.user.income = getTotalIncomes();
+            }
 
             saveState();
             closeIncomeModal();
@@ -3660,6 +3948,12 @@
         function deleteIncome(id) {
             if (confirm('¿Eliminar este ingreso?')) {
                 state.incomes = state.incomes.filter(i => i.id !== id);
+                
+                // Si useReceivedAsExpected está activo, actualizar el income
+                if (state.user?.useReceivedAsExpected) {
+                    state.user.income = getTotalIncomes();
+                }
+                
                 saveState();
                 renderBudget();
                 renderDashboard();
@@ -3723,8 +4017,8 @@
             const selectedMonth = getSelectedBudgetMonth();
             const isCurrentMonth = selectedMonth === getCurrentMonth();
             
-            const expectedIncome = state.user?.income || 0;
             const receivedIncome = isCurrentMonth ? getTotalIncomes() : 0;
+            const expectedIncome = isCurrentMonth ? getEffectiveExpectedIncome() : (state.user?.income || 0);
             const pendingIncome = expectedIncome - receivedIncome;
             const monthlyBudgets = getMonthlyBudgets(selectedMonth);
             const totalBudget = Object.values(monthlyBudgets).reduce((sum, b) => sum + Number(b), 0);
@@ -3740,9 +4034,25 @@
                 recentIncomesCard.style.display = 'none';
             } else {
                 incomeSummary.style.display = 'block';
-                document.getElementById('expectedIncome').textContent = formatMoney(expectedIncome);
+                
+                // Expected income input
+                const expectedInput = document.getElementById('expectedIncomeInput');
+                const useReceivedToggle = document.getElementById('useReceivedAsExpected');
+                const useReceived = state.user?.useReceivedAsExpected || false;
+                
+                useReceivedToggle.checked = useReceived;
+                expectedInput.disabled = useReceived;
+                
+                if (useReceived) {
+                    expectedInput.value = formatAmountInput(receivedIncome);
+                } else {
+                    const manualExpected = state.user?.income || 0;
+                    expectedInput.value = manualExpected > 0 ? formatAmountInput(manualExpected) : '';
+                }
+                
                 document.getElementById('receivedIncome').textContent = formatMoney(receivedIncome);
                 document.getElementById('pendingIncome').textContent = formatMoney(Math.max(0, pendingIncome));
+                
                 renderRecentIncomes();
             }
 
@@ -3776,17 +4086,20 @@
             let html = '';
             state.categories.forEach(cat => {
                 const budget = monthlyBudgets[cat.id] || 0;
+                const formattedBudget = budget > 0 ? formatAmountInput(budget) : '';
                 html += `
                     <div class="category-item">
                         <span class="category-icon">${cat.icon}</span>
                         <div class="category-info">
                             <div class="category-name">${cat.name}</div>
                         </div>
-                        <input type="number" 
-                            value="${budget}" 
+                        <input type="text" inputmode="numeric"
+                            value="${formattedBudget}" 
                             placeholder="0" 
-                            style="width: 90px; text-align: right;"
-                            onchange="updateBudget(${cat.id}, this.value)">
+                            class="amount-input budget-input"
+                            style="width: 100px; text-align: right;"
+                            onchange="updateBudget(${cat.id}, this.value)"
+                            oninput="this.value = formatAmountInput(this.value)">
                         <div class="category-actions">
                             <button onclick="editCategory(${cat.id})" class="action-btn"><i data-lucide="pencil"></i></button>
                             <button onclick="deleteCategory(${cat.id})" class="action-btn delete"><i data-lucide="trash-2"></i></button>
@@ -3800,10 +4113,10 @@
         }
 
         function updateBudget(categoryId, value) {
-            const newValue = Number(value) || 0;
+            const newValue = parseAmountInput(value) || 0;
             const selectedMonth = getSelectedBudgetMonth();
             const monthlyBudgets = getMonthlyBudgets(selectedMonth);
-            const expectedIncome = state.user?.income || 0;
+            const expectedIncome = getEffectiveExpectedIncome();
             
             // Calcular el total actual sin la categoría que estamos editando
             const otherBudgets = Object.entries(monthlyBudgets)
@@ -3877,6 +4190,7 @@
         // ============ CATEGORIES (integradas en Budget) ============
 
         function openCategoryModal(categoryId = null) {
+            lockBodyScroll();
             document.getElementById('categoryModal').classList.add('active');
             
             if (categoryId) {
@@ -3901,6 +4215,7 @@
 
         function closeCategoryModal() {
             document.getElementById('categoryModal').classList.remove('active');
+            unlockBodyScroll();
         }
 
         function populateIconGrid() {
@@ -3979,6 +4294,7 @@
 
         // ============ INCOME CATEGORIES ============
         function openIncomeCategoryModal(categoryId = null) {
+            lockBodyScroll();
             document.getElementById('incomeCategoryModal').classList.add('active');
             populateIncomeIconGrid();
             
@@ -4004,6 +4320,7 @@
 
         function closeIncomeCategoryModal() {
             document.getElementById('incomeCategoryModal').classList.remove('active');
+            unlockBodyScroll();
         }
 
         function saveIncomeCategory() {
@@ -4078,17 +4395,22 @@
         let selectedGoalIcon = '🎯';
 
         function openGoalModal(goalId = null) {
+            lockBodyScroll();
             document.getElementById('goalModal').classList.add('active');
             populateGoalIconGrid();
+            
+            const targetInput = document.getElementById('goalTargetAmount');
+            const savedInput = document.getElementById('goalSavedAmount');
+            const monthlyInput = document.getElementById('goalMonthlySaving');
             
             if (goalId) {
                 const goal = state.goals.find(g => g.id === goalId);
                 if (goal) {
                     document.getElementById('goalModalTitle').textContent = 'Editar Objetivo';
                     document.getElementById('goalName').value = goal.name;
-                    document.getElementById('goalTargetAmount').value = goal.targetAmount;
-                    document.getElementById('goalSavedAmount').value = goal.savedAmount;
-                    document.getElementById('goalMonthlySaving').value = goal.monthlySaving;
+                    targetInput.value = formatAmountInput(goal.targetAmount);
+                    savedInput.value = formatAmountInput(goal.savedAmount);
+                    monthlyInput.value = formatAmountInput(goal.monthlySaving);
                     document.getElementById('editingGoalId').value = goalId;
                     selectedGoalIcon = goal.icon;
                     updateGoalIconSelection();
@@ -4096,17 +4418,23 @@
             } else {
                 document.getElementById('goalModalTitle').textContent = 'Nuevo Objetivo';
                 document.getElementById('goalName').value = '';
-                document.getElementById('goalTargetAmount').value = '';
-                document.getElementById('goalSavedAmount').value = '';
-                document.getElementById('goalMonthlySaving').value = '';
+                targetInput.value = '';
+                savedInput.value = '';
+                monthlyInput.value = '';
                 document.getElementById('editingGoalId').value = '';
                 selectedGoalIcon = '🎯';
                 updateGoalIconSelection();
             }
+            
+            // Configurar formateo en tiempo real
+            setupAmountInput(targetInput);
+            setupAmountInput(savedInput);
+            setupAmountInput(monthlyInput);
         }
 
         function closeGoalModal() {
             document.getElementById('goalModal').classList.remove('active');
+            unlockBodyScroll();
         }
 
         function populateGoalIconGrid() {
@@ -4129,9 +4457,9 @@
 
         function saveGoal() {
             const name = document.getElementById('goalName').value.trim();
-            const targetAmount = Number(document.getElementById('goalTargetAmount').value) || 0;
-            const savedAmount = Number(document.getElementById('goalSavedAmount').value) || 0;
-            const monthlySaving = Number(document.getElementById('goalMonthlySaving').value) || 0;
+            const targetAmount = parseAmountInput(document.getElementById('goalTargetAmount').value) || 0;
+            const savedAmount = parseAmountInput(document.getElementById('goalSavedAmount').value) || 0;
+            const monthlySaving = parseAmountInput(document.getElementById('goalMonthlySaving').value) || 0;
             const editingId = document.getElementById('editingGoalId').value;
 
             if (!name) {
@@ -4180,7 +4508,7 @@
         function updateGoalSaved(id, value) {
             const goal = state.goals.find(g => g.id === id);
             if (goal) {
-                goal.savedAmount = Number(value) || 0;
+                goal.savedAmount = parseAmountInput(value) || 0;
                 saveState();
                 renderGoals();
             }
@@ -4262,8 +4590,10 @@
                         
                         <div class="goal-update">
                             <label>Actualizar ahorro:</label>
-                            <input type="number" value="${goal.savedAmount}" 
+                            <input type="text" inputmode="numeric" value="${formatAmountInput(goal.savedAmount)}" 
+                                class="amount-input"
                                 onchange="updateGoalSaved(${goal.id}, this.value)"
+                                oninput="this.value = formatAmountInput(this.value)"
                                 style="width: 120px;">
                         </div>
                     </div>
@@ -4289,6 +4619,37 @@
             saveState();
             renderDashboard();
             renderBudget();
+        }
+        
+        // ============ EXPECTED INCOME ============
+        function updateExpectedIncome(value) {
+            const amount = parseAmountInput(value);
+            state.user.income = amount;
+            state.user.useReceivedAsExpected = false;
+            saveState();
+            renderBudget();
+            renderDashboard();
+        }
+        
+        function toggleUseReceivedAsExpected() {
+            const useReceived = document.getElementById('useReceivedAsExpected').checked;
+            state.user.useReceivedAsExpected = useReceived;
+            
+            if (useReceived) {
+                // Actualizar el ingreso esperado con el total de ingresos recibidos
+                state.user.income = getTotalIncomes();
+            }
+            
+            saveState();
+            renderBudget();
+            renderDashboard();
+        }
+        
+        function getEffectiveExpectedIncome() {
+            if (state.user?.useReceivedAsExpected) {
+                return getTotalIncomes();
+            }
+            return state.user?.income || 0;
         }
 
         function exportData() {
@@ -4650,7 +5011,7 @@
             const doc = new jsPDF();
             
             // Datos
-            const expectedIncome = state.user?.income || 0;
+            const expectedIncome = getEffectiveExpectedIncome();
             const totalBudget = getTotalBudget();
             const actualIncome = getTotalIncomes();
             const actualExpenses = getTotalExpenses();
@@ -5267,10 +5628,95 @@
             localStorage.setItem('installDismissed', new Date().toISOString());
         }
 
-        // Check if running as installed PWA
-        if (window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone) {
-            document.body.classList.add('pwa-standalone');
-        }
+        // ============ PWA DETECTION AND SETUP ============
+        (function initPWA() {
+            // Detect platform
+            const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+            const isIOS = /iPad|iPhone|iPod/.test(userAgent) && !window.MSStream;
+            const isIPadOS = navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1;
+            const isAndroid = /android/i.test(userAgent);
+            const isMobile = isIOS || isIPadOS || isAndroid;
+            
+            // Detect standalone mode (PWA installed)
+            const isIOSStandalone = window.navigator.standalone === true;
+            const isStandalone = isIOSStandalone || window.matchMedia('(display-mode: standalone)').matches;
+            
+            // Add platform classes
+            if (isIOS || isIPadOS) {
+                document.documentElement.classList.add('platform-ios');
+            }
+            if (isAndroid) {
+                document.documentElement.classList.add('platform-android');
+            }
+            if (isMobile) {
+                document.documentElement.classList.add('platform-mobile');
+            }
+            
+            // Handle standalone mode
+            if (isStandalone) {
+                document.body.classList.add('pwa-standalone');
+                
+                if (isIOS || isIPadOS || isIOSStandalone) {
+                    // iOS PWA specific handling
+                    document.documentElement.classList.add('ios-standalone');
+                    
+                    // Prevent bounce effect while allowing scroll
+                    document.body.addEventListener('touchmove', function(e) {
+                        // Allow default behavior - scrolling handled by CSS
+                    }, { passive: true });
+                    
+                    // Fix for iOS keyboard pushing content
+                    const inputs = document.querySelectorAll('input, select, textarea');
+                    inputs.forEach(input => {
+                        input.addEventListener('focus', function() {
+                            setTimeout(() => {
+                                this.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                            }, 300);
+                        });
+                    });
+                    
+                } else if (isAndroid) {
+                    // Android PWA specific handling
+                    document.documentElement.classList.add('android-standalone');
+                }
+                
+                // Force layout recalculation after DOM ready
+                if (document.readyState === 'loading') {
+                    document.addEventListener('DOMContentLoaded', forceLayoutRecalc);
+                } else {
+                    forceLayoutRecalc();
+                }
+            }
+            
+            function forceLayoutRecalc() {
+                // Trigger reflow for proper scroll calculation
+                requestAnimationFrame(() => {
+                    const app = document.getElementById('app');
+                    if (app) {
+                        app.style.display = 'none';
+                        app.offsetHeight; // Force reflow
+                        app.style.display = '';
+                    }
+                    // Scroll to top
+                    window.scrollTo(0, 0);
+                });
+            }
+            
+            // Handle orientation changes
+            window.addEventListener('orientationchange', () => {
+                setTimeout(forceLayoutRecalc, 100);
+            });
+            
+            // Handle resize (keyboard open/close on mobile)
+            let lastHeight = window.innerHeight;
+            window.addEventListener('resize', () => {
+                const newHeight = window.innerHeight;
+                if (Math.abs(newHeight - lastHeight) > 150) {
+                    // Likely keyboard open/close
+                    lastHeight = newHeight;
+                }
+            });
+        })();
 
         // Handle app visibility changes (for data sync)
         document.addEventListener('visibilitychange', () => {
